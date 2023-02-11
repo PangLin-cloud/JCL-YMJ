@@ -8,10 +8,10 @@ import "bootstrap"
 	<div container>
 		<header class="row">
 			<!-- <HomeNav></HomeNav> -->
-			<div class="col">
+			<div class="col-3">
 				<span>JCL&YMJ</span>
 			</div>
-			<div class="navUl col">
+			<div class="navUl col-9">
 				<ul class="ul-list col-6 list-inline">
 					<li class="list-inline-item"><a href="#">首页</a></li>
 					<li class="list-inline-item"><a href="#">博客文档</a></li>
@@ -64,24 +64,40 @@ header ul {
 /* 设置上方导航鼠标移上样式 */
 header ul li a {
 	text-decoration: none;
-	color: aquamarine;
-	
-}
-header ul li a:hover{
-	animation-name: navalink;
-	animation-duration: 1.5s;
-}
+	font-weight: 600;
 
-/* 鼠标移上动画效果 */
-@keyframes navalink {
-	from {
-		color: aquamarine;
+}
+/* 鼠标移上导航栏菜单后边框从中间展开 */
+header ul li a {
+	display: inline-block;
+	line-height: 30px;
+	padding: 0 10px;
+	cursor: pointer;
+	position: relative;
+}
+header ul li a::after {
+	content: "";
+	border-bottom: red solid 2px;
+	display: block;
+	transform: scale(0);
+	transition: all 0.6s ease-out 0s;
+}
+header ul li a:hover::after {
+	animation-direction: alternate;
+	animation: navHover 1s 0s infinite linear;
+}
+	/* 鼠标移上导航栏菜单动画效果 */
+@keyframes  navHover{
+    0%{
+		transform: scale(0);	
 	}
 	50%{
-		color: blue;
+		transform: scale(1);
 	}
-	to {
-		color: red;
+    100%{
+		transform: scale(0);
 	}
 }
+
+
 </style>
